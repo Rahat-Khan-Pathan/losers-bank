@@ -70,6 +70,7 @@ body {
 /* Money Section Styles  */
 .money-section {
     display: none;
+    padding-bottom: 50px;
 }
 .money-section {
     min-height: 100vh;
