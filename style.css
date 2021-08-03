@@ -1,0 +1,113 @@
+/* Google Fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Common STyles  */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Login Section Styles  */
+.login-section {
+    display: block;
+}
+.login-section, .login-container {
+    min-height: 100vh;
+}
+.container h1 {
+    font-weight: 700;
+}
+.card-container {
+    width: 65%;
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 1px rgb(218, 214, 214);
+}
+.card-container h2 {
+    font-weight: 700;
+    background: -webkit-linear-gradient(60deg,rgb(1, 80, 1),rgb(0, 255, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+}
+.text
+{
+    padding: 0px 30px;
+    height: 45px;
+    width: 95%;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    outline: none;
+    background: #e6e6e6;
+    border: none;
+    font-weight: 700;
+    font-size: 15px;
+    color: black;
+    overflow:auto;
+    text-align: left;
+    cursor: text;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.3s;
+}
+.text:focus
+{
+    box-shadow: 0px 0px 6px 0.8px rgba(0, 255, 255, 0.692);
+}
+.btn-submit {
+    border-radius: 30px;
+    padding: 10px; 
+    font-weight: 600; 
+    width: 150px;
+}
+#deposit-btn {
+    background-color: slateblue;
+}
+#withdraw-btn {
+    background-color: salmon;
+}
+
+/* Money Section Styles  */
+.money-section {
+    display: none;
+}
+.money-section {
+    min-height: 100vh;
+}
+.money-container {
+    margin-top: 150px;
+}
+#deposit {
+    background-color: slateblue;
+}
+#withdraw {
+    background-color: salmon;
+}
+#balance {
+    background-color: orange;
+}
+.box {
+    padding: 30px 15px;
+    border-radius: 10px;
+    color: white;
+}
+.box p {
+    font-weight: 600;
+}
+.input-container {
+    margin-top: 80px;
+}
+.input-box {
+    box-shadow: 0px 0px 5px 1px rgb(218, 214, 214);
+    padding: 30px;
+    border-radius: 20px;
+}
+.input-box h2 {
+    font-weight: 600;
+}
+
+@media only screen and (max-width:767px) {
+    .card-container {
+        width: 90%;
+    }
+}

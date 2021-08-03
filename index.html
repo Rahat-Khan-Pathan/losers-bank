@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Losers Bank</title>
+
+    <!-- Bootstrap CSS CDN  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Custom CSS  -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <section class="login-section" id="login-section">
+            <div class="login-container container d-flex justify-content-center align-items-center flex-column">
+                <h1 class="fs-1">Welcome Loser</h1>
+                <div class="card-container container d-flex justify-content-center flex-column align-items-center">
+                    <h2 class="text-center fs-3">Login</h2>
+                    <input placeholder="Email" class="mt-3 text" type="email" name="" id="">
+                    <input placeholder="Password" class="mt-2 text" type="password" name="" id="">
+                    <button id="btn-submit" class="mt-3 btn btn-success btn-submit text-center m-auto">Enter</button>
+                </div>
+            </div>
+        </section>
+        <section class="money-section" id="money-section">
+            <div class="container money-container">
+                <div class="row justify-content-evenly px-4 gy-5">
+                    <div class="col-xl-3 col-lg-5 box" id="deposit">
+                        <p class="fs-5">Deposit</p>
+                        <h1 class="fs-1 fw-bold">$ <span id="deposit-value">00</span> </h1>
+                    </div>
+                    <div class="col-xl-3 col-lg-5 box" id="withdraw">
+                        <p class="fs-5">Withdraw</p>
+                        <h1 class="fs-1 fw-bold">$ <span id="withdraw-value">00</span> </h1>
+                    </div>
+                    <div class="col-xl-3 col-lg-5 box" id="balance">
+                        <p class="fs-5">Balance</p>
+                        <h1 class="fs-1 fw-bold">$ <span id="balance-value">1300</span> </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container input-container">
+                <div class="row justify-content-evenly gy-5 px-4">
+                    <div class="col-lg-5 input-box d-flex flex-column align-items-center">
+                        <h2 class="fs-2 mb-4">Deposit</h2>
+                        <input placeholder="$ Amount you want to deposit" class="text form-control" type="text" name="" id="deposit-input" required>
+                        <button class="btn btn-submit m-auto text-white" id="deposit-btn">Deposit</button>
+                    </div>
+                    <div class="col-lg-5 input-box d-flex flex-column align-items-center">
+                        <h2 class="fs-2 mb-4">Withdraw</h2>
+                        <input placeholder="$ Amount you want to withdraw" class="text form-control" type="text" name="" id="withdraw-input">
+                        <button class="btn btn-submit m-auto text-white" id="withdraw-btn">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const loginButton = document.getElementById('btn-submit');
+        const loginSection = document.getElementById('login-section');
+        const moneySection = document.getElementById('money-section');
+        loginButton.addEventListener('click',function(event){
+            loginSection.style.display='none';
+            moneySection.style.display='block';
+        })
+
+
+        const depositButton = document.getElementById('deposit-btn');
+        const withdrawButton = document.getElementById('withdraw-btn');
+        const depositInput = document.getElementById('deposit-input');
+        const withdrawInput = document.getElementById('withdraw-input');
+        const depositValue = document.getElementById('deposit-value');
+        const withdrawValue = document.getElementById('withdraw-value');
+        const banalceValue = document.getElementById('balance-value');
+
+        depositButton.addEventListener('click',function(event){
+            var depositAmount = parseFloat(document.getElementById('deposit-input').value);
+            var newDeposit = parseFloat(depositValue.innerText) + depositAmount;
+            depositValue.innerText = newDeposit;
+            var newBalance = parseFloat(banalceValue.innerText) + depositAmount;
+            banalceValue.innerText = newBalance;
+            depositInput.value = "";
+        })
+        withdrawButton.addEventListener('click',function(event){
+            var withdrawAmount = parseFloat(document.getElementById('withdraw-input').value);
+            var newWithdraw = parseFloat(withdrawValue.innerText) + withdrawAmount;
+            withdrawValue.innerText = newWithdraw;
+            var newBalance = parseFloat(banalceValue.innerText) - withdrawAmount;
+            banalceValue.innerText = newBalance;
+            withdrawInput.value = "";   
+        })
+    </script>
+</body>
+
+</html>
