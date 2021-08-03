@@ -15,16 +15,16 @@ const banalceValue = document.getElementById('balance-value')
 depositButton.addEventListener('click',function(event){
     var depositAmount = parseFloat(document.getElementById('deposit-input').value);
     var newDeposit = parseFloat(depositValue.innerText) + depositAmount;
-    depositValue.innerText = newDeposit;
+    depositValue.innerText = newDeposit.toFixed(2);
     var newBalance = parseFloat(banalceValue.innerText) + depositAmount;
-    banalceValue.innerText = newBalance;
+    banalceValue.innerText = newBalance.toFixed(2);
     depositInput.value = "";
 })
 withdrawButton.addEventListener('click',function(event){
     var withdrawAmount = parseFloat(document.getElementById('withdraw-input').value);
     var newWithdraw = parseFloat(withdrawValue.innerText) + withdrawAmount;
-    withdrawValue.innerText = newWithdraw;
+    withdrawValue.innerText = newWithdraw.toFixed(2);
     var newBalance = parseFloat(banalceValue.innerText) - withdrawAmount;
-    banalceValue.innerText = newBalance;
+    banalceValue.innerText = newBalance.toFixed(2);
     withdrawInput.value = "";   
 })
