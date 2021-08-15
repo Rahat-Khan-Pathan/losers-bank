@@ -23,6 +23,15 @@ function setValue(val,targetId)
     let newValue = getValue(targetId) + val;
     document.getElementById(targetId).innerText = newValue.toFixed(2);
 }
+function check(val)
+{
+    if(val<0)
+    {
+        alert("Please give valid amount of money!");
+        return false;
+    }
+    else return true;
+}
 function clearInput(id)
 {
     document.getElementById(id).value = '';
@@ -30,12 +39,23 @@ function clearInput(id)
 depositButton.addEventListener('click',function(event)
 {
     let deposit = getInputValue('deposit-input');
-    setValue(deposit,'deposit-value');
-    setValue(deposit,'balance-value');
+    if(check(deposit))
+    {
+        setValue(deposit,'deposit-value');
+        setValue(deposit,'balance-value');
+    }
 })
 withdrawButton.addEventListener('click',function(event)
 {
     let withdraw = getInputValue('withdraw-input');
-    setValue(withdraw,'withdraw-value');
-    setValue(-withdraw,'balance-value');
+    const balance = getValue('balance-value');
+    if(balance < withdraw)
+    {
+        alert("Not enough money!!")
+    }
+    if(check(withdraw) && balance >= withdraw)
+    {
+        setValue(withdraw,'withdraw-value');
+        setValue(-withdraw,'balance-value');
+    }
 })
