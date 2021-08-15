@@ -25,12 +25,12 @@ function setValue(val,targetId)
 }
 function check(val)
 {
-    if(val<0)
+    if(val>0) return true;
+    else
     {
         alert("Please give valid amount of money!");
         return false;
     }
-    else return true;
 }
 function clearInput(id)
 {
