@@ -10,15 +10,18 @@ const depositButton = document.getElementById('deposit-btn');
 const withdrawButton = document.getElementById('withdraw-btn');
 function getInputValue(id)
 {
-    return parseFloat(document.getElementById(id).value);
+    const ans = parseFloat(document.getElementById(id).value);
+    clearInput(id);
+    return ans;
 }
 function getValue(targetId)
 {
-    return parseFloat(document.getElementById(targetId).innerText);
+    return  parseFloat(document.getElementById(targetId).innerText);
 }
 function setValue(val,targetId)
 {
-    document.getElementById(targetId).innerText = val.toFixed(2);
+    let newValue = getValue(targetId) + val;
+    document.getElementById(targetId).innerText = newValue.toFixed(2);
 }
 function clearInput(id)
 {
@@ -27,18 +30,12 @@ function clearInput(id)
 depositButton.addEventListener('click',function(event)
 {
     let deposit = getInputValue('deposit-input');
-    let newDeposit = getValue('deposit-value') + deposit;
-    setValue(newDeposit,'deposit-value');
-    let newBalance = getValue('balance-value') + deposit;
-    setValue(newBalance,'balance-value');
-    clearInput('deposit-input');
+    setValue(deposit,'deposit-value');
+    setValue(deposit,'balance-value');
 })
 withdrawButton.addEventListener('click',function(event)
 {
     let withdraw = getInputValue('withdraw-input');
-    let newWithdraw = getValue('withdraw-value') + withdraw;
-    setValue(newWithdraw,'withdraw-value');
-    let newBalance = getValue('balance-value') - withdraw;
-    setValue(newBalance,'balance-value');
-    clearInput('withdraw-input');
+    setValue(withdraw,'withdraw-value');
+    setValue(-withdraw,'balance-value');
 })
